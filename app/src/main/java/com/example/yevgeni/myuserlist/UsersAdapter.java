@@ -18,7 +18,9 @@ import java.util.List;
 public class UsersAdapter extends ArrayAdapter<Users>{
     Activity activity;
     List<Users> usersList;
+
     UsersAdapterDelete deleteListener;
+
 
     public UsersAdapter(Activity activity, List<Users> usersList) {
         super(activity, R.layout.item_users,usersList);
@@ -44,8 +46,9 @@ public class UsersAdapter extends ArrayAdapter<Users>{
             usersContainer.userDeleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   if(deleteListener != null)
-                        deleteListener.deleteUsr(position);
+                   if(deleteListener != null){
+                       deleteListener.deleteUsr(position);
+                   }
                 }
             });
             rowView.setTag(usersContainer);

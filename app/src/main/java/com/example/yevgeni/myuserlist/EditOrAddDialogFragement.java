@@ -90,30 +90,26 @@ public class EditOrAddDialogFragement extends DialogFragment{
             String usrPassEntered = inputPass.getText().toString();
 
             if (isEdit) {
-                    if (listener != null) {
-                        listener.edit(usrNameEntered, usrPassEntered);
-                        dismiss();
-                    }
-
-                } else{
-                    if(listener!=null)
-                        listener.add(usrNameEntered,usrPassEntered);
-
-                    if(!TextUtils.isEmpty(usrNameEntered)){
-                        if (!TextUtils.isEmpty(usrPassEntered))
+                if (listener != null) {
+                    listener.edit(usrNameEntered, usrPassEntered);
+                    dismiss();
+                }
+            } else {
+                    if (listener != null)
+                        listener.add(usrNameEntered, usrPassEntered);
+                    if (!TextUtils.isEmpty(usrNameEntered)) {
+                        if (!TextUtils.isEmpty(usrPassEntered)){
                             dismiss();
-                        Toast.makeText(view.getContext(), "PLease Enter a Password", Toast.LENGTH_SHORT).show();
-
-                    }else {
+                        }else{
+                            Toast.makeText(view.getContext(), "PLease Enter a Password", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
                         Toast.makeText(view.getContext(), "Please Enter a User Name", Toast.LENGTH_SHORT).show();
                     }
+
                 }
-
             }
-    };
-
-
-
+        };
 
     public static interface EditOrAddListener{
         void edit(String usrName, String usrPassword);
