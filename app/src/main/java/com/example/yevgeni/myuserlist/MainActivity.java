@@ -15,13 +15,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends Activity implements  EditOrAddDialogFragement.EditOrAddListener ,UsersAdapter.UsersAdapterDelete{
+public class MainActivity extends Activity implements  EditOrAddDialogFragement.EditOrAddListener {
 
     ListView listUsers;
     ArrayList <Users> usersArray = new ArrayList<Users>();
     int position;
-
-    List<Users> users;
+    
     UsersAdapter usersAdapter;
 
     @Override
@@ -83,11 +82,6 @@ public class MainActivity extends Activity implements  EditOrAddDialogFragement.
     }
 
 
-    @Override
-    public void deleteUsr(int Position) {
-        usersArray.remove(position);
-        usersAdapter.notifyDataSetChanged();
-    }
 
 //    @Override
 //    public void removeUser() {
